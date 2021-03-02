@@ -2,14 +2,16 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Objects;
 
-public class Lesson {
-    String topic;
-    LocalDate date;
-    String materials;
-    Group group;
-    ArrayList<HomeWork> homeWorks;
+public class Lesson implements IPersistenceEntity {
+    private Integer id;
+    private String topic;
+    private LocalDate date;
+    private String materials;
+    private Group group;
+    private List<HomeWork> homeWorks;
 
     public Lesson(String topic, LocalDate date, String materials, Group group) {
         this.topic = topic;
@@ -17,6 +19,10 @@ public class Lesson {
         this.materials = materials;
         this.group = group;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public String getTopic() {
         return topic;
@@ -46,7 +52,7 @@ public class Lesson {
         return group;
     }
 
-    public ArrayList<HomeWork> getHomeWorks() {
+    public List<HomeWork> getHomeWorks() {
         return homeWorks;
     }
 

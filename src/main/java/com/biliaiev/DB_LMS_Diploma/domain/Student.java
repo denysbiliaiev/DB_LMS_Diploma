@@ -1,16 +1,19 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-public class Student extends User {
-
+public class Student extends User implements IPersistenceEntity {
+    private Integer id;
     private Group group;
 
     public Student(String firstName, String lastName, LocalDate dateOfBirth, Group group) {
         super(firstName, lastName, dateOfBirth);
         this.group = group;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public Group getGroup() {
         return group;

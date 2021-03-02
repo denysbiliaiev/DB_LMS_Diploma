@@ -3,17 +3,19 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
-public class Group {
+public class Group implements IPersistenceEntity {
 
+    private Integer id;
     private String name;
     private String direction;
     private LocalDate startDate;
 
-    private ArrayList<Teacher> teachers;
-    private ArrayList<Student> students;
-    private LinkedList<Lesson> lessons;
+    private List<Teacher> teachers;
+    private List<Student> students;
+    private List<Lesson> lessons;
     private Feed feed;
 
     public Group(String name, String direction, LocalDate startDate) {
@@ -22,6 +24,10 @@ public class Group {
         this.startDate = startDate;
         this.feed = new Feed(this);
     }
+
+    public Integer getId() { return this.id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public String getName() {
         return name;
@@ -47,7 +53,7 @@ public class Group {
         this.startDate = startDate;
     }
 
-    public ArrayList<Teacher> getTeachers() {
+    public List<Teacher> getTeachers() {
         return teachers;
     }
 
@@ -55,7 +61,7 @@ public class Group {
         this.teachers = teachers;
     }
 
-    public ArrayList<Student> getStudents() {
+    public List<Student> getStudents() {
         return students;
     }
 
@@ -63,7 +69,7 @@ public class Group {
         this.students = students;
     }
 
-    public LinkedList<Lesson> getLessons() {
+    public List<Lesson> getLessons() {
         return lessons;
     }
 
@@ -78,6 +84,7 @@ public class Group {
     @Override
     public String toString() {
         return "Group{" +
+                "id='" + id + '\'' +
                 "name='" + name + '\'' +
                 ", direction='" + direction + '\'' +
                 ", startDate=" + startDate +
@@ -89,13 +96,18 @@ public class Group {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Group group = (Group) o;
-        return name.equals(group.name) &&
+        return id.equals(group.id) &&
+                name.equals(group.name) &&
                 direction.equals(group.direction) &&
-                startDate.equals(group.startDate);
+                startDate.equals(group.startDate) &&
+                Objects.equals(teachers, group.teachers) &&
+                Objects.equals(students, group.students) &&
+                Objects.equals(lessons, group.lessons) &&
+                Objects.equals(feed, group.feed);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, direction, startDate);
+        return Objects.hash(id, name, direction, startDate, teachers, students, lessons, feed);
     }
 }

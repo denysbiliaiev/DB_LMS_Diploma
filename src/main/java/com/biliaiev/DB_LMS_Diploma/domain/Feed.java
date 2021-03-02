@@ -1,15 +1,21 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.util.LinkedList;
+import java.util.List;
 
-public class Feed {
+public class Feed implements IPersistenceEntity {
+    private Integer id;
     private Group group;
-    private LinkedList<Post> posts;
+    private List<Post> posts;
 
     public Feed(Group group) {
         this.group = group;
         this.posts = new LinkedList<>();
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public Group getGroup() {
         return group;
@@ -19,7 +25,7 @@ public class Feed {
         posts.add(post);
     }
 
-    public LinkedList<Post> getPosts() {
+    public List<Post> getPosts() {
         return posts;
     }
 }

@@ -3,16 +3,21 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Post {
-    String text;
-    LocalDate datePosted;
-    User author;
+public class Post implements IPersistenceEntity {
+    private Integer id;
+    private String text;
+    private LocalDate datePosted;
+    private User author;
 
     public Post(String text, LocalDate datePosted, User author) {
         this.text = text;
         this.datePosted = datePosted;
         this.author = author;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public String getText() {
         return text;
