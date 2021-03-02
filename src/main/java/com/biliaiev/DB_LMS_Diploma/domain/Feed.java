@@ -1,15 +1,14 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
-import java.util.LinkedHashSet;
-import java.util.Set;
+import java.util.LinkedList;
 
 public class Feed {
     private Group group;
-    private Set<Post> posts;
+    private LinkedList<Post> posts;
 
     public Feed(Group group) {
         this.group = group;
-        this.posts = new LinkedHashSet<>();
+        this.posts = new LinkedList<>();
     }
 
     public Group getGroup() {
@@ -20,7 +19,7 @@ public class Feed {
         posts.add(post);
     }
 
-    public Set<Post> getPosts() {
+    public LinkedList<Post> getPosts() {
         return posts;
     }
 }

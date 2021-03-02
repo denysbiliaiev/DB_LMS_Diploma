@@ -6,10 +6,12 @@ import java.util.Objects;
 public class Post {
     String text;
     LocalDate datePosted;
+    User author;
 
-    public Post(String text, LocalDate datePosted) {
+    public Post(String text, LocalDate datePosted, User author) {
         this.text = text;
         this.datePosted = datePosted;
+        this.author = author;
     }
 
     public String getText() {

@@ -1,16 +1,25 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
+import java.time.LocalDate;
 import java.util.Objects;
 
 public class HomeTask {
-    private String materials;
+    String materials;
+    LocalDate deadLine;
+    HomeWork homeWork;
 
-    public HomeTask(String materials) {
+    public HomeTask(String materials, LocalDate deadLine, HomeWork homeWork) {
         this.materials = materials;
+        this.deadLine = deadLine;
+        this.homeWork = homeWork;
     }
 
     public String getMaterials() {
         return materials;
+    }
+
+    public LocalDate getDeadLine() {
+        return deadLine;
     }
 
     @Override

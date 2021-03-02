@@ -1,19 +1,21 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Objects;
 
 public class Lesson {
     String topic;
     LocalDate date;
     String materials;
-    HomeWork homeWork;
+    Group group;
+    ArrayList<HomeWork> homeWorks;
 
-    public Lesson(String topic, LocalDate date, String materials, HomeWork homeWork) {
+    public Lesson(String topic, LocalDate date, String materials, Group group) {
         this.topic = topic;
         this.date = date;
         this.materials = materials;
-        this.homeWork = homeWork;
+        this.group = group;
     }
 
     public String getTopic() {
@@ -40,8 +42,20 @@ public class Lesson {
         this.materials = materials;
     }
 
-    public HomeWork getHomeWork() {
-        return homeWork;
+    public Group getGroup() {
+        return group;
+    }
+
+    public ArrayList<HomeWork> getHomeWorks() {
+        return homeWorks;
+    }
+
+    public void addHomeWorks(HomeWork homeWork) {
+        if (homeWorks == null) {
+            homeWorks = new ArrayList<>();
+        }
+
+        homeWorks.add(homeWork);
     }
 
     @Override

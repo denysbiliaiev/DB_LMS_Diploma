@@ -1,8 +1,9 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.Objects;
-import java.util.Set;
 
 public class Group {
 
@@ -10,9 +11,9 @@ public class Group {
     private String direction;
     private LocalDate startDate;
 
-    private Set<Teacher> teachers;
-    private Set<Student> students;
-    private Set<Lesson> lessons;
+    private ArrayList<Teacher> teachers;
+    private ArrayList<Student> students;
+    private LinkedList<Lesson> lessons;
     private Feed feed;
 
     public Group(String name, String direction, LocalDate startDate) {
@@ -46,27 +47,27 @@ public class Group {
         this.startDate = startDate;
     }
 
-    public Set<Teacher> getTeachers() {
+    public ArrayList<Teacher> getTeachers() {
         return teachers;
     }
 
-    public void setTeachers(Set<Teacher> teachers) {
+    public void setTeachers(ArrayList<Teacher> teachers) {
         this.teachers = teachers;
     }
 
-    public Set<Student> getStudents() {
+    public ArrayList<Student> getStudents() {
         return students;
     }
 
-    public void setStudents(Set<Student> students) {
+    public void setStudents(ArrayList<Student> students) {
         this.students = students;
     }
 
-    public Set<Lesson> getLessons() {
+    public LinkedList<Lesson> getLessons() {
         return lessons;
     }
 
-    public void setLessons(Set<Lesson> lessons) {
+    public void setLessons(LinkedList<Lesson> lessons) {
         this.lessons = lessons;
     }
 

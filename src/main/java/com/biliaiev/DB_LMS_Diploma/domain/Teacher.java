@@ -1,14 +1,13 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
-import java.util.HashSet;
+import java.util.ArrayList;
 import java.util.Objects;
-import java.util.Set;
 
 public class Teacher extends User {
 
     private String role;
-    private Set<Group> groups;
+    private ArrayList<Group> groups;
 
     public Teacher(String firstName, String lastName, LocalDate dateOfBirth, String role) {
         super(firstName, lastName, dateOfBirth);
@@ -25,37 +24,23 @@ public class Teacher extends User {
 
     public void addGroup(Group group) {
         if (this.groups == null) {
-            this.groups = new HashSet<>();
+            this.groups = new ArrayList<>();
         }
 
         groups.add(group);
     }
 
-    public Set<Group> getGroups() {
+    public ArrayList<Group> getGroups() {
         return this.groups;
     }
 
     @Override
     public String toString() {
         return "Teacher{" +
-                "groups=" + groups +
                 ", firstName='" + firstName + '\'' +
                 ", lastName='" + lastName + '\'' +
-                ", dateOfBirth=" + dateOfBirth +
+                ", dateOfBirth='" + dateOfBirth +
+                ", role=" + role +
                 '}';
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        if (!super.equals(o)) return false;
-        Teacher teacher = (Teacher) o;
-        return role.equals(teacher.role);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(super.hashCode(), role);
     }
 }
