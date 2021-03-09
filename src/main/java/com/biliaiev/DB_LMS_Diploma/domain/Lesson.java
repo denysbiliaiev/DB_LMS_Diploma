@@ -5,13 +5,13 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
 
-public class Lesson implements IPersistenceEntity {
+public class Lesson implements PersistenceEntity {
     private Integer id;
     private String topic;
     private LocalDate date;
     private String materials;
     private Group group;
-    private List<HomeWork> homeWorks;
+    private List<HomeTask> homeTasks;
 
     public Lesson(String topic, LocalDate date, String materials, Group group) {
         this.topic = topic;
@@ -52,16 +52,16 @@ public class Lesson implements IPersistenceEntity {
         return group;
     }
 
-    public List<HomeWork> getHomeWorks() {
-        return homeWorks;
+    public List<HomeTask> getHomeTasks() {
+        return homeTasks;
     }
 
-    public void addHomeWorks(HomeWork homeWork) {
-        if (homeWorks == null) {
-            homeWorks = new ArrayList<>();
+    public boolean addHomeTasks(HomeTask homeTask) {
+        if (homeTasks == null) {
+            homeTasks = new ArrayList<>();
         }
 
-        homeWorks.add(homeWork);
+        return homeTasks.add(homeTask);
     }
 
     @Override

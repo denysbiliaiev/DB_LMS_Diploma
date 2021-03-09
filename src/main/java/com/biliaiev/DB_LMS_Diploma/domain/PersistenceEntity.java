@@ -1,6 +1,6 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
-public interface IPersistenceEntity {
+public interface PersistenceEntity {
 
     Integer getId();
 

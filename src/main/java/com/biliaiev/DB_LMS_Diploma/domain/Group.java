@@ -6,7 +6,7 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.Objects;
 
-public class Group implements IPersistenceEntity {
+public class Group implements PersistenceEntity {
 
     private Integer id;
     private String name;
@@ -54,6 +54,10 @@ public class Group implements IPersistenceEntity {
     }
 
     public List<Teacher> getTeachers() {
+        if (teachers == null) {
+            teachers = new ArrayList<>();
+        }
+
         return teachers;
     }
 
@@ -62,6 +66,10 @@ public class Group implements IPersistenceEntity {
     }
 
     public List<Student> getStudents() {
+        if (students == null) {
+            students = new ArrayList<>();
+        }
+
         return students;
     }
 
@@ -70,6 +78,10 @@ public class Group implements IPersistenceEntity {
     }
 
     public List<Lesson> getLessons() {
+        if (lessons == null) {
+            lessons = new LinkedList<>();
+        }
+
         return lessons;
     }
 

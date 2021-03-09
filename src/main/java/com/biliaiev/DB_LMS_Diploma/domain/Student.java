@@ -2,7 +2,7 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
 
-public class Student extends User implements IPersistenceEntity {
+public class Student extends User implements PersistenceEntity {
     private Integer id;
     private Group group;
 
@@ -17,10 +17,6 @@ public class Student extends User implements IPersistenceEntity {
 
     public Group getGroup() {
         return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     @Override

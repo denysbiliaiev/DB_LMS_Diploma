@@ -3,7 +3,7 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 import java.time.LocalDate;
 import java.util.Objects;
 
-public class Post implements IPersistenceEntity {
+public class Post implements PersistenceEntity {
     private Integer id;
     private String text;
     private LocalDate datePosted;
@@ -23,8 +23,9 @@ public class Post implements IPersistenceEntity {
         return text;
     }
 
-    public void setText(String text) {
+    public boolean setText(String text) {
         this.text = text;
+        return true;
     }
 
     public LocalDate getDatePosted() {

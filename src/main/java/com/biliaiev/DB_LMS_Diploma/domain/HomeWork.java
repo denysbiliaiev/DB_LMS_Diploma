@@ -1,20 +1,14 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
-import java.time.LocalDate;
-
-public class HomeWork implements IPersistenceEntity {
+public class HomeWork implements PersistenceEntity {
     private Integer id;
     private HomeTask homeTask;
-    private LocalDate date;
-    private LocalDate deadLine;
     private Student student;
-    private Lesson lesson;
+    private Integer points;
 
-    public HomeWork(LocalDate date, LocalDate deadLine, String materials, Student student, Lesson lesson) {
-        this.date = date;
-        this.homeTask = new HomeTask(materials, deadLine, this);
+    public HomeWork(HomeTask homeTask, Student student) {
+        this.homeTask = homeTask;
         this.student = student;
-        this.lesson = lesson;
     }
 
     public Integer getId() { return id; }
@@ -25,11 +19,16 @@ public class HomeWork implements IPersistenceEntity {
         return homeTask;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Student getStudent() {
+        return student;
     }
 
-    public LocalDate getDeadLine() {
-        return deadLine;
+    public Integer getPoints() {
+        return points;
+    }
+
+    public boolean setPoints(Integer points) {
+        this.points = points;
+        return true;
     }
 }

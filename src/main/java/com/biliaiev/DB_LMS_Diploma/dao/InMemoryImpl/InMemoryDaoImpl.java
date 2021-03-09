@@ -1,12 +1,12 @@
 package com.biliaiev.DB_LMS_Diploma.dao.InMemoryImpl;
 
 import com.biliaiev.DB_LMS_Diploma.dao.GenericDao;
-import com.biliaiev.DB_LMS_Diploma.domain.IPersistenceEntity;
+import com.biliaiev.DB_LMS_Diploma.domain.PersistenceEntity;
 import com.biliaiev.DB_LMS_Diploma.domain.Persistence.Persistence;
 
 import java.util.*;
 
-public class InMemoryDaoImpl<T extends IPersistenceEntity> implements GenericDao<T> {
+public class InMemoryDaoImpl<T extends PersistenceEntity> implements GenericDao<T> {
     Persistence storage;
 
     public InMemoryDaoImpl() {
@@ -18,7 +18,7 @@ public class InMemoryDaoImpl<T extends IPersistenceEntity> implements GenericDao
         return new ArrayList<T>(storage.getEntities().values());
     }
 
-    public T saveItem(T item) {
+    public T saveEntity(T item) {
         int id = storage.getNewId(storage.getEntities());
         item.setId(id);
         storage.getEntities().put(id, item);
@@ -26,12 +26,12 @@ public class InMemoryDaoImpl<T extends IPersistenceEntity> implements GenericDao
     }
 
     @Override
-    public T getItem(int id) {
+    public T getEntity(int id) {
         return (T) storage.getEntities().get(id);
     }
 
     @Override
-    public boolean updateItem(T entity) {
+    public boolean updateEntity(T entity) {
         int id = entity.getId();
         Map<Integer, T> groups = storage.getEntities();
 
@@ -44,7 +44,7 @@ public class InMemoryDaoImpl<T extends IPersistenceEntity> implements GenericDao
     }
 
     @Override
-    public boolean deleteItem(int id) {
+    public boolean deleteEntity(int id) {
         HashMap<Integer, T> groups = storage.getEntities();
 
         if (groups.containsKey(id)) {

@@ -5,11 +5,11 @@ import java.util.List;
 public interface GenericDao<T> {
     List<T> getAll();
 
-    T saveItem(T item);
+    T saveEntity(T item);
 
-    T getItem(int id);
+    T getEntity(int id);
 
-    boolean updateItem(T item);
+    boolean updateEntity(T item);
 
-    boolean deleteItem(int id);
+    boolean deleteEntity(int id);
 }

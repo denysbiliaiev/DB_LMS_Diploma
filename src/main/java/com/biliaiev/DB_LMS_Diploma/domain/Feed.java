@@ -3,14 +3,13 @@ package com.biliaiev.DB_LMS_Diploma.domain;
 import java.util.LinkedList;
 import java.util.List;
 
-public class Feed implements IPersistenceEntity {
+public class Feed implements PersistenceEntity {
     private Integer id;
     private Group group;
     private List<Post> posts;
 
     public Feed(Group group) {
         this.group = group;
-        this.posts = new LinkedList<>();
     }
 
     public Integer getId() { return id; }
@@ -21,8 +20,12 @@ public class Feed implements IPersistenceEntity {
         return group;
     }
 
-    public void addPost(Post post) {
-        posts.add(post);
+    public boolean addPost(Post post) {
+        if (posts == null) {
+            posts = new LinkedList<>();
+        }
+
+        return posts.add(post);
     }
 
     public List<Post> getPosts() {

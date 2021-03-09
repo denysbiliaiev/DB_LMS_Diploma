@@ -4,7 +4,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Teacher extends User implements IPersistenceEntity {
+public class Teacher extends User implements PersistenceEntity {
     private Integer id;
     private String role;
     private List<Group> groups;
@@ -26,12 +26,12 @@ public class Teacher extends User implements IPersistenceEntity {
         this.role = role;
     }
 
-    public void addGroup(Group group) {
+    public boolean addGroup(Group group) {
         if (this.groups == null) {
             this.groups = new ArrayList<>();
         }
 
-        groups.add(group);
+        return groups.add(group);
     }
 
     public List<Group> getGroups() {
