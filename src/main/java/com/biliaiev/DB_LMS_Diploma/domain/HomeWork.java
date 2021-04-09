@@ -1,30 +1,34 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
-import java.time.LocalDate;
+public class HomeWork implements PersistenceEntity {
+    private Integer id;
+    private HomeTask homeTask;
+    private Student student;
+    private Integer points;
 
-public class HomeWork {
-    HomeTask homeTask;
-    LocalDate date;
-    LocalDate deadLine;
-    Teacher teacher;
-    Lesson lesson;
-
-    public HomeWork(LocalDate date, LocalDate deadLine, String materials, Teacher teacher, Lesson lesson) {
-        this.date = date;
-        this.homeTask = new HomeTask(materials, deadLine, this);
-        this.teacher = teacher;
-        this.lesson = lesson;
+    public HomeWork(HomeTask homeTask, Student student) {
+        this.homeTask = homeTask;
+        this.student = student;
     }
+
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
 
     public HomeTask getHomeTask() {
         return homeTask;
     }
 
-    public LocalDate getDate() {
-        return date;
+    public Student getStudent() {
+        return student;
     }
 
-    public LocalDate getDeadLine() {
-        return deadLine;
+    public Integer getPoints() {
+        return points;
+    }
+
+    public boolean setPoints(Integer points) {
+        this.points = points;
+        return true;
     }
 }

@@ -1,37 +1,55 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
-import java.util.Objects;
+import java.util.ArrayList;
+import java.util.List;
 
-public class HomeTask {
-    String materials;
-    LocalDate deadLine;
-    HomeWork homeWork;
+public class HomeTask implements PersistenceEntity {
+    private Integer id;
+    private LocalDate date;
+    private LocalDate deadLine;
+    private String materials;
+    private Lesson lesson;
+    private Teacher teacher;
+    private List<HomeWork> homeWorks;
 
-    public HomeTask(String materials, LocalDate deadLine, HomeWork homeWork) {
-        this.materials = materials;
+    public HomeTask(LocalDate date, LocalDate deadLine, String materials, Lesson lesson, Teacher teacher) {
+        this.date = date;
         this.deadLine = deadLine;
-        this.homeWork = homeWork;
+        this.materials = materials;
+        this.lesson = lesson;
+        this.teacher = teacher;
     }
 
-    public String getMaterials() {
-        return materials;
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
+
+    public LocalDate getDate() {
+        return date;
     }
 
     public LocalDate getDeadLine() {
         return deadLine;
     }
 
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        HomeTask homeTask = (HomeTask) o;
-        return materials.equals(homeTask.materials);
+    public String getMaterials() {
+        return materials;
     }
 
-    @Override
-    public int hashCode() {
-        return Objects.hash(materials);
+    public Lesson getLesson() {
+        return lesson;
+    }
+
+    public List<HomeWork> getHomeWorks() {
+        return homeWorks;
+    }
+
+    public boolean addHomeWork(HomeWork homeWork) {
+        if (homeWorks == null) {
+            homeWorks = new ArrayList<>();
+        }
+
+        return homeWorks.add(homeWork);
     }
 }

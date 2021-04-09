@@ -1,10 +1,9 @@
 package com.biliaiev.DB_LMS_Diploma.domain;
 
 import java.time.LocalDate;
-import java.util.Objects;
 
-public class Student extends User {
-
+public class Student extends User implements PersistenceEntity {
+    private Integer id;
     private Group group;
 
     public Student(String firstName, String lastName, LocalDate dateOfBirth, Group group) {
@@ -12,12 +11,12 @@ public class Student extends User {
         this.group = group;
     }
 
+    public Integer getId() { return id; }
+
+    public void setId(Integer id) { this.id = id; }
+
     public Group getGroup() {
         return group;
-    }
-
-    public void setGroup(Group group) {
-        this.group = group;
     }
 
     @Override
