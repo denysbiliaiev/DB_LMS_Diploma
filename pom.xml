@@ -23,13 +23,20 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
+        <log4j-core.version>2.14.1</log4j-core.version>
     </properties>
 
     <dependencies>
+    <!--LOGGING-->
         <dependency>
             <groupId>org.apache.logging.log4j</groupId>
             <artifactId>log4j-core</artifactId>
-            <version>2.14.0</version>
+            <version>${log4j-core.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>com.jcabi</groupId>
+            <artifactId>jcabi-log</artifactId>
+            <version>0.19.0</version>
         </dependency>
     </dependencies>
 </project>
