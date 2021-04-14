@@ -7,13 +7,14 @@ import org.apache.logging.log4j.Logger;
 
 import java.util.Scanner;
 
-public class Terminal {
+public class Terminal implements View {
     public Client operationClient;
 
     public Terminal() {
         operationClient = new Client();
     }
 
+    @Override
     public void run() {
         Scanner scanner = new Scanner(System.in);
         Commands command;
