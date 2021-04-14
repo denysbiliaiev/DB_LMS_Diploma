@@ -7,7 +7,7 @@ public class Client {
         this.serviceOperationExecutor = new Invoker();
     }
 
-    public void executeCommand (Command command) {
+    public void executeCommand (Commands command) {
         if (command.service == "group") {
             serviceOperationExecutor.executeOperation(new GroupCommand(command));
         }

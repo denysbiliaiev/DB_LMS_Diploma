@@ -6,12 +6,12 @@ import org.apache.logging.log4j.Logger;
 import java.util.*;
 
 public class DefaultCommand implements ICommand {
-    List<Command> commands;
-    Command command;
+    List<Commands> commands;
+    Commands command;
 
-    public DefaultCommand(Command command) {
+    public DefaultCommand(Commands command) {
         commands = new ArrayList<>(Arrays.asList(
-            Command.HELP, Command.TERMINATE
+            Commands.HELP, Commands.TERMINATE
         ));
 
         this.command = command;
@@ -39,7 +39,7 @@ public class DefaultCommand implements ICommand {
         log.info("exit with code 0");
     }
 
-    public List<Command> getCommands() {
+    public List<Commands> getCommands() {
         return commands;
     }
 
