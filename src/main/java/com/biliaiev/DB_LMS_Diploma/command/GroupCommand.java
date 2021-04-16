@@ -1,7 +1,7 @@
 package com.biliaiev.DB_LMS_Diploma.command;
 
 import com.biliaiev.DB_LMS_Diploma.dao.GenericDao;
-import com.biliaiev.DB_LMS_Diploma.dao.InMemoryImpl.InMemoryDaoImpl;
+import com.biliaiev.DB_LMS_Diploma.dao.impl.InMemory;
 import com.biliaiev.DB_LMS_Diploma.domain.Group;
 import com.biliaiev.DB_LMS_Diploma.service.GroupService;
 import com.biliaiev.DB_LMS_Diploma.service.GroupServiceImpl;
@@ -14,8 +14,7 @@ public class GroupCommand implements ICommand {
     GroupService groupService;
 
     public GroupCommand(Commands command) {
-        GenericDao<Group> groupDao = new InMemoryDaoImpl<>();
-        this.groupService = new GroupServiceImpl(groupDao);
+        this.groupService = new GroupServiceImpl();
         this.defaultCommand = new DefaultCommand(command);
 
         this.command = command;

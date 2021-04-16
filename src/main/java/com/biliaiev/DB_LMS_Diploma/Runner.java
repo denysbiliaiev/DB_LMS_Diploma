@@ -1,7 +1,7 @@
 package com.biliaiev.DB_LMS_Diploma;
 
+import com.biliaiev.DB_LMS_Diploma.dao.DaoContext;
 import com.biliaiev.DB_LMS_Diploma.dao.DaoType;
-import com.biliaiev.DB_LMS_Diploma.dao.factory.DaoAbstractFactory;
 import com.biliaiev.DB_LMS_Diploma.presentation.terminal.ViewFactory;
 import com.biliaiev.DB_LMS_Diploma.presentation.terminal.ViewType;
 import org.apache.commons.cli.*;
@@ -21,7 +21,7 @@ public class Runner {
             DaoType daoType = DaoType.valueOf(cmd.getOptionValue("daoType", DaoType.IN_MEMORY.name()));
             ViewType viewType = ViewType.valueOf(cmd.getOptionValue("viewType", ViewType.TERMINAL.name()));
 
-            DaoAbstractFactory daoAbstractFactory = new DaoAbstractFactory(daoType);
+            DaoContext.init(daoType);
 
             ViewFactory.getView(viewType).run();
 

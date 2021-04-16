@@ -1,5 +1,6 @@
 package com.biliaiev.DB_LMS_Diploma.service;
 
+import com.biliaiev.DB_LMS_Diploma.dao.DaoContext;
 import com.biliaiev.DB_LMS_Diploma.dao.GenericDao;
 import com.biliaiev.DB_LMS_Diploma.domain.Group;
 import com.biliaiev.DB_LMS_Diploma.domain.Lesson;
@@ -17,8 +18,8 @@ public class GroupServiceImpl implements GroupService {
 
     GenericDao<Group> groupDao;
 
-    public GroupServiceImpl(GenericDao<Group> groupDao) {
-        this.groupDao = groupDao;
+    public GroupServiceImpl() {
+        this.groupDao = DaoContext.getInstance().getGroupDao();
     }
 
     @Override

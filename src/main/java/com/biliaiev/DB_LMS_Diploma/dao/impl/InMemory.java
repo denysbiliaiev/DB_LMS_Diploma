@@ -1,4 +1,4 @@
-package com.biliaiev.DB_LMS_Diploma.dao.InMemoryImpl;
+package com.biliaiev.DB_LMS_Diploma.dao.impl;
 
 import com.biliaiev.DB_LMS_Diploma.dao.GenericDao;
 import com.biliaiev.DB_LMS_Diploma.domain.PersistenceEntity;
@@ -6,10 +6,10 @@ import com.biliaiev.DB_LMS_Diploma.domain.Persistence.Persistence;
 
 import java.util.*;
 
-public class InMemoryDaoImpl<T extends PersistenceEntity> implements GenericDao<T> {
+public class InMemory<T extends PersistenceEntity> implements GenericDao<T> {
     Persistence storage;
 
-    public InMemoryDaoImpl() {
+    public InMemory() {
         this.storage = Persistence.getInstance();
     }
 
